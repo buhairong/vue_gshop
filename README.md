@@ -1,3 +1,5 @@
+git remote add origin https://github.com/buhairong/vue_gshop.git
+
 # gshop
 
 > A Vue.js project
