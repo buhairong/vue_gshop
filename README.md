@@ -1,6 +1,9 @@
-﻿mongod 
-
+﻿mongod
 git remote add origin https://github.com/buhairong/vue_gshop.git
+
+http://mint-ui.github.io/#!/zh-cn
+https://www.yuntongxun.com/
+http://doc.yuntongxun.com/p/5a533e0c3b8496dd00dce08c
 
 # gshop
 
