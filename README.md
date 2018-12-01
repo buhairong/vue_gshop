@@ -1,9 +1,16 @@
 ﻿mongod
 git remote add origin https://github.com/buhairong/vue_gshop.git
 
+github: https://github.com/vuejs/vue-router
+中文文档: http://router.vuejs.org/zh-cn/
+
 http://mint-ui.github.io/#!/zh-cn
+
 https://www.yuntongxun.com/
 http://doc.yuntongxun.com/p/5a533e0c3b8496dd00dce08c
+
+http://mockjs.com/
+https://github.com/nuysoft/Mock
 
 # gshop
 

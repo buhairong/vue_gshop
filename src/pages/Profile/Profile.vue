@@ -113,7 +113,7 @@ export default {
           Toast('登出完成')
         },
         action => {
-          console.log("点击了取消")
+          console.log('点击了取消')
         }
       )
     }
