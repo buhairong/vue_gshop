@@ -9,11 +9,11 @@ import './mock/mockServer'
 // 注册全局组件标签
 Vue.component(Button.name, Button) // <mt-button>
 
-let vue = new Vue({
+
+new Vue({
   el: '#app',
   render: h => h(App),
   router,
   store
 })
 
-Vue.use(vue)

@@ -12,37 +12,9 @@ http://doc.yuntongxun.com/p/5a533e0c3b8496dd00dce08c
 http://mockjs.com/
 https://github.com/nuysoft/Mock
 
-# gshop
-
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
+https://github.com/ustbhuangyi/better-scroll
+https://github.com/ustbhuangyi/better-scroll/blob/master/README_zh-CN.md
+https://ustbhuangyi.github.io/better-scroll/#/zh
 
 #######################################################################################################################################################################################################
 
