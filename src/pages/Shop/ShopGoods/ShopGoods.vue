@@ -12,7 +12,7 @@
         </ul>
       </div>
       <div class="foods-wrapper">
-        <ul>
+        <ul ref="foodsUl">
           <li class="food-list-hook" v-for="(good, index) in goods" :key="index">
             <h1 class="title">{{good.name}}</h1>
             <ul>
@@ -37,7 +37,6 @@
               </li>
             </ul>
           </li>
-
         </ul>
       </div>
     </div>
@@ -59,17 +58,8 @@ export default {
   mounted () {
     this.$store.dispatch('getShopGoods', () => {
       this.$nextTick(() => {
-        new BScroll('.menu-wrapper', {
-
-        })
-        const foodsScroll = new BScroll('.foods-wrapper', {
-          probeType: 2 // 因为惯性滑动不会触发
-        })
-
-        // 给右侧列表绑定scroll监听
-        foodsScroll.on('scroll', ({x, y}) => {
-          this.scrollY = Math.abs(y)
-        })
+        this._initScroll()
+        this._initTops()
       })
     })
   },
@@ -79,7 +69,50 @@ export default {
 
     // 计算得到当前分类的下标
     currentIndex () {
+      // 得到条件数据
+      const {scrollY, tops} = this
 
+      // 根据条件计算产生一个结果
+      const index = tops.findIndex((top, index) => {
+        // scrollY >= 当前top  && scrollY < 下一个top
+        return scrollY >= top && scrollY < tops[index + 1]
+      })
+
+      // 返回结果
+      return index
+    }
+  },
+
+  methods: {
+    // 初始化滚动条
+    _initScroll () {
+      new BScroll('.menu-wrapper', {
+
+      })
+      const foodsScroll = new BScroll('.foods-wrapper', {
+        probeType: 2 // 因为惯性滑动不会触发
+      })
+
+      // 给右侧列表绑定scroll监听
+      foodsScroll.on('scroll', ({x, y}) => {
+        this.scrollY = Math.abs(y)
+      })
+    },
+
+    // 初始化tops
+    _initTops () {
+      const tops = []
+      let top = 0
+      tops.push(top)
+      // 找到所有分类的li
+      const lis = this.$refs.foodsUl.getElementsByClassName('food-list-hook')
+      Array.prototype.slice.call(lis).forEach(li => {
+        top += li.clientHeight
+        tops.push(top)
+      })
+
+      // 更新数据
+      this.tops = tops
     }
   }
 }
@@ -111,7 +144,7 @@ export default {
           z-index: 10
           margin-top: -1px
           background: #fff
-          color: $green
+          color: green
           font-weight: 700
           .text
             border-none()
