@@ -9,11 +9,10 @@ import './mock/mockServer'
 // 注册全局组件标签
 Vue.component(Button.name, Button) // <mt-button>
 
-
+/* eslint-disable no-new */
 new Vue({
   el: '#app',
   render: h => h(App),
   router,
   store
 })
-

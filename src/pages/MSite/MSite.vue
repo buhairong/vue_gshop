@@ -96,6 +96,7 @@ export default {
       // 界面更新就立即创建Swiper对象
       this.$nextTick(() => { // 一旦完成界面更新，立即调用
         //  创建一个Swiper实例对象，来实现轮播
+        /* eslint-disable no-new */
         new Swiper('.swiper-container', {
           loop: true, //  可以循环轮播
           pagination: { //  分页器
