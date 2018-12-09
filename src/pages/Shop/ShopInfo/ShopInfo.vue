@@ -28,7 +28,7 @@
       <section class="section">
         <h3 class="section-title">商家实景</h3>
         <div class="pic-wrapper">
-          <ul class="pic-list">
+          <ul class="pic-list" ref="picsUl">
             <li class="pic-item" v-for="(pic, index) in info.pics" :key="index">
               <img width="120" height="90" :src="pic"/>
             </li>
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 import {mapState} from 'vuex'
 
 export default {
@@ -61,6 +62,40 @@ export default {
 
   computed: {
     ...mapState(['info'])
+  },
+
+  mounted () {
+    // 如果数据还没有， 直接结束
+    if (!this.info.pics) {
+      return
+    }
+
+    // 数据有了，可以创建BScroll对象形成滑动
+    this._initScroll()
+  },
+
+  methods: {
+    _initScroll () {
+      new BScroll('.shop-info')
+
+      const ul = this.$refs.picsUl
+      const liWidth = 120
+      const space = 6
+      const count = this.info.pics.length
+      ul.style.width = (liWidth + space) * count - space + 'px'
+
+      new BScroll('.pic-wrapper', {
+        scrollX: true
+      })
+    }
+  },
+
+  watch: {
+    info () { // 刷新流程 --> 更新数据
+      this.$nextTick(() => {
+        this._initScroll()
+      })
+    }
   }
 }
 </script>
