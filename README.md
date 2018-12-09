@@ -16,6 +16,8 @@ https://github.com/ustbhuangyi/better-scroll
 https://github.com/ustbhuangyi/better-scroll/blob/master/README_zh-CN.md
 https://ustbhuangyi.github.io/better-scroll/#/zh
 
+https://github.com/hilongjw/vue-lazyload
+
 #######################################################################################################################################################################################################
 
 npm install -g vue-cli
